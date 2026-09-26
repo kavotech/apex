@@ -84,6 +84,21 @@ body { background: #111214; color: #fff; }
 .navbar_logo .apex-logo { width: 2.2rem; height: 2.2rem; margin: 0; }
 }
 
+/* Apex vehicle gallery and comparison sliders. */
+.apex-gallery-section .apex-comparison-list { padding: 0 1rem; }
+.apex-ba-item { max-width: 64rem; margin: 0 auto 5rem; }
+.apex-ba-item .pg-ba-caption { max-width: 44rem; margin: 0 auto 1.5rem; }
+.apex-ba-item .pg-ba-caption p { margin-top: .75rem; color: rgba(255,255,255,.75); }
+.apex-ba-item .project-ba_slider { width: min(100%, 48rem); height: auto; aspect-ratio: 4 / 5; max-height: 82svh; margin: 0 auto; border-radius: 12px; }
+.apex-ba-item .project-ba_before-image,
+.apex-ba-item .project-ba_after-image { object-fit: cover; object-position: center; }
+.apex-ba-item .project-ba_drag-handle { color: #111214; background-color: #fff; border: 2px solid #087fc1; border-radius: 50%; width: 3rem; height: 3rem; display: grid; place-items: center; }
+@media (max-width: 767px) {
+  .apex-gallery-section .apex-comparison-list { padding: 0 1rem; }
+  .apex-ba-item { margin-bottom: 3.5rem; }
+  .apex-ba-item .project-ba_slider { width: 100%; max-height: 76svh; aspect-ratio: 4 / 5; }
+}
+
 /* Webflow's first-paint rules hide animated copy until its runtime runs. Keep the
    content readable if a script, font request or reduced-motion setting interrupts it. */
 html.w-mod-js [data="scroll-text"],
