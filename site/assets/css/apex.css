@@ -274,10 +274,83 @@ html.w-mod-js .button.is-secondary.is-alternate { visibility: visible !important
   .pg-lightbox_prev, .pg-lightbox_next { top: auto; bottom: 1rem; transform: none; }
 }
 
-/* Quote modal options */
-.pg-quote-options { display: grid; gap: 1rem; align-content: center; height: 100%; }
-.pg-quote-options .button { width: 100%; }
-.pg-quote-note { font-size: .875rem; opacity: .7; margin-top: .5rem; }
+/* Booking dialog: content determines height; short screens scroll inside the card. */
+.apex-booking-modal {
+  width: min(34rem, calc(100% - 2rem));
+  max-width: none;
+  max-height: calc(100vh - 2rem);
+  max-height: calc(100dvh - 2rem);
+  margin: auto;
+  padding: 0;
+  border: 1px solid #42434a;
+  border-radius: 1.5rem;
+  background: #1b1c20;
+  color: #fff;
+  box-shadow: 0 24px 80px #0009;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  text-align: left;
+}
+.apex-booking-modal::backdrop { background: #080a10c9; backdrop-filter: blur(8px); }
+.apex-booking-header {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #ffffff1f;
+  background: #1b1c20;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+.apex-booking-logo { width: 3rem; height: 3rem; object-fit: contain; flex: 0 0 3rem; }
+.apex-booking-header > span { font-size: .625rem; letter-spacing: .08em; line-height: 1.5; color: #c9c9cd; }
+.apex-booking-close {
+  display: grid;
+  place-items: center;
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+  margin-left: auto;
+  padding: 0;
+  border: 1px solid #ffffff30;
+  border-radius: 50%;
+  color: #fff;
+  background: transparent;
+  cursor: pointer;
+}
+.apex-booking-close:hover { background: #303137; }
+.apex-booking-body { padding: 1.5rem; }
+.apex-booking-body h2 { margin: 0 0 .75rem; font-size: clamp(1.75rem, 5vw, 2.5rem); line-height: 1.15; }
+.apex-booking-body > p { margin: 0; color: #c9c9cd; font-size: 1rem; line-height: 1.55; }
+.apex-booking-options { display: grid; gap: .75rem; margin: 1.5rem 0; }
+.apex-booking-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem;
+  padding: 1rem;
+  border: 1px solid #54555c;
+  border-radius: .875rem;
+  color: #fff;
+  background: #25262b;
+  text-decoration: none;
+}
+.apex-booking-option > span:first-child { min-width: 0; overflow-wrap: anywhere; }
+.apex-booking-option strong { display: block; font-size: 1rem; line-height: 1.4; }
+.apex-booking-option small { display: block; margin-top: .25rem; font-size: .8125rem; line-height: 1.5; color: #ddd; }
+.apex-booking-option.is-primary { background: #087fc1; border-color: #48b5f2; }
+.apex-booking-option.is-primary small { color: #fff; }
+.apex-booking-option:hover { border-color: #48b5f2; background: #303137; }
+.apex-booking-option.is-primary:hover { background: #066ba6; }
+.apex-booking-arrow { font-size: 1.375rem; flex-shrink: 0; }
+.apex-booking-footer a { color: #77cfff; font-size: .9375rem; text-underline-offset: .25em; }
+.apex-booking-footer p { margin: .75rem 0 0; color: #c9c9cd; font-size: .8125rem; line-height: 1.5; }
+.apex-booking-modal :is(a, button):focus-visible { outline: 2px solid #77cfff; outline-offset: 3px; }
+@media (max-width: 479px) {
+  .apex-booking-header { padding: .75rem 1rem; }
+  .apex-booking-body { padding: 1.25rem 1rem; }
+}
 
 /* Contact form status */
 .pg-form-status { display: none; margin-top: 1rem; }
