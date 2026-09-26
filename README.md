@@ -25,7 +25,7 @@ If any setting is missing, the endpoint returns 503 and the page offers a pre-fi
 - Booking email configuration, business address and any confirmed social profile URLs.
 - Approved customer testimonials. The existing review section is retained without inherited endorsements.
 
-Cleaning packages start at £30, £50 and £100 depending on vehicle size. Maintenance is available after a Full Deep Detail (Full Deep Clean): every 2 weeks £60–£80 or every 4 weeks £80–£100.
+Cleaning packages start at £30, £50 and £100 depending on vehicle size. Maintenance is available after a Full Deep Detail (Full Deep Clean): bi-weekly maintenance £60–£80 or monthly maintenance £80–£100.
 
 ## Cookie consent
 
