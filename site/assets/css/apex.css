@@ -257,3 +257,26 @@ html.w-mod-js .button.is-secondary.is-alternate { visibility: visible !important
 .form_component .form_form { max-width: 40rem; }
 .pg-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
 @media screen and (max-width: 479px) { .pg-form-row { grid-template-columns: 1fr; } }
+
+/* Prevent narrow mobile columns and tight leading from clipping copy or glyphs. */
+@media screen and (max-width: 767px) {
+  h1, h2, h3, h4, h5, h6,
+  [class*="heading-style-"] {
+    min-width: 0;
+    max-width: 100%;
+    overflow: visible;
+    overflow-wrap: anywhere;
+    line-height: 1.22;
+    padding-block: .055em;
+  }
+  p, li, .text-size-xs, .text-size-s, .text-size-m, .text-size-l,
+  .text-size-xl, .footer_credit-text {
+    min-width: 0;
+    max-width: 100%;
+    overflow: visible;
+    overflow-wrap: anywhere;
+  }
+  .button-group { flex-wrap: wrap; }
+  .button-group .button { max-width: 100%; white-space: normal; line-height: 1.35; }
+  .apex-wordmark > span { white-space: normal; overflow-wrap: anywhere; }
+}
