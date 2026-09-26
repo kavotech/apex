@@ -1,5 +1,5 @@
 /*
-  Apex Care Manchester — additions layered on top of the master template stylesheet (webflow.css).
+  apexautocaremcr — additions layered on top of the master template stylesheet (webflow.css).
   Everything here reuses the template's own colour, radius and type tokens. It only covers pieces the
   template did not ship: a five-link navbar fit, stats grid, service-area grid, gallery filters + lightbox,
   the quote modal options and form status messages.
@@ -19,6 +19,12 @@
   --_color---colour--brand2--brand2-500: #087fc1;
 }
 body { background: #111214; color: #fff; }
+h1, h2, h3,
+.heading-style-6xl, .heading-style-7xl, .heading-style-3xl, .heading-style-xl {
+  overflow: visible;
+}
+.heading-style-6xl, .heading-style-7xl { line-height: 1.16; padding-block: .035em; }
+.apex-wordmark { line-height: 1.12; overflow-wrap: anywhere; }
 [data-theme="light"] {
   background-color: #1b1c20;
   color: #fff;
@@ -58,6 +64,19 @@ body { background: #111214; color: #fff; }
 .apex-review-pending { max-width: 42rem; border-left: 3px solid #087fc1; padding-left: 1.5rem; }
 .form_input option { background: #fff; color: #111214; }
 .pg-stat_number, .stats42_number { color: #48b5f2; }
+
+/* Ease back the template's heavy image treatments so the vehicle photos read clearly. */
+.hero_image-overlay-layer { background-color: rgba(0, 0, 0, .24); }
+.header_image-overlay-layer { background-color: rgba(0, 0, 0, .22); }
+.map_image-overlay-layer { background-color: rgba(0, 0, 0, .1); }
+.recentwork_image-overlay {
+  background-image: linear-gradient(0deg, rgba(17, 18, 20, .58), transparent 52%, transparent 76%, rgba(17, 18, 20, .48));
+  opacity: 1;
+  mix-blend-mode: normal;
+}
+.hero_background-image, .header_background-image, .map_background-image,
+.recentwork_image, .image-right_image, .image-left_image, .stats42_image,
+.header108_image-list img { filter: brightness(1.06); }
 
 /* These cards used a light surface token while inheriting white copy. */
 .timeline10_item { background-color: #25262b; color: #fff; border-color: #54555c; }
@@ -139,6 +158,8 @@ html.w-mod-js .button.is-secondary.is-alternate { visibility: visible !important
 .pg-stat_number { margin-bottom: .5rem; }
 @media screen and (max-width: 767px) {
   .pg-stats { gap: 2rem 1.5rem; }
+  .heading-style-6xl, .heading-style-7xl { line-height: 1.18; padding-block: .055em; }
+  .footer_left-wrapper h2, .footer_credit-text { overflow-wrap: anywhere; }
 }
 
 /* Service areas (uses the template's gallery-details items) */

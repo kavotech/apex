@@ -1,4 +1,4 @@
-/* Apex Care Manchester — gallery filter + lightbox, contact form, and small helpers.
+/* apexautocaremcr — gallery filter + lightbox, contact form, and small helpers.
    Sits alongside the template's Webflow / GSAP / Swiper scripts and does not change them. */
 (function () {
   'use strict';
@@ -120,7 +120,7 @@
 
     function whatsappLink(d) {
       var lines = [
-        'Hi Apex Care Manchester, I would like to book a detail.',
+        'Hi apexautocaremcr, I would like to book a detail.',
         d.service ? 'Service: ' + d.service : '',
         d.postcode ? 'Postcode: ' + d.postcode : '',
         d.message ? d.message : '',

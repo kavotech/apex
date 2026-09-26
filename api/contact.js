@@ -1,9 +1,9 @@
 /**
- * POST /api/contact — emails an Apex Care Manchester booking enquiry.
+ * POST /api/contact — emails an apexautocaremcr booking enquiry.
  *
  * Uses the Resend REST API (https://resend.com). Configure in Vercel → Project → Settings → Environment Variables:
  *   RESEND_API_KEY       (required)  API key from your Resend account
- *   CONTACT_FROM_EMAIL   (required) verified sender for Apex Care Manchester
+ *   CONTACT_FROM_EMAIL   (required) verified sender for apexautocaremcr
  *   CONTACT_TO_EMAIL     (required) Apex booking recipient
  *
  * If any required setting is missing the endpoint answers 503 and the page offers a pre-filled WhatsApp message,
@@ -44,7 +44,7 @@ module.exports = async function handler(req, res) {
   if (!key || !from || !to) return res.status(503).json({ error: 'not_configured' });
 
   const rows = [['Name', d.name], ['Phone', d.phone], ['Email', d.email], ['Postcode', d.postcode], ['Service', d.service], ['Message', d.message || '(none)']];
-  const html = `<h2>Apex Care Manchester booking enquiry</h2><table cellpadding="6" style="border-collapse:collapse">${rows.map(([k, v]) => `<tr><td><strong>${k}</strong></td><td>${esc(v).replace(/\n/g, '<br>')}</td></tr>`).join('')}</table>`;
+  const html = `<h2>apexautocaremcr booking enquiry</h2><table cellpadding="6" style="border-collapse:collapse">${rows.map(([k, v]) => `<tr><td><strong>${k}</strong></td><td>${esc(v).replace(/\n/g, '<br>')}</td></tr>`).join('')}</table>`;
   const text = rows.map(([k, v]) => `${k}: ${v}`).join('\n');
 
   try {

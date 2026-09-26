@@ -1,4 +1,4 @@
-/* Apex Care Manchester — UI layer: glass mobile drawer, cookie consent, scroll animations.
+/* apexautocaremcr — UI layer: glass mobile drawer, cookie consent, scroll animations.
    Independent of the template's Webflow/GSAP scripts (it does not modify them). */
 (function () {
   'use strict';
@@ -36,7 +36,7 @@
 
     var drawer = el('aside', 'pg-drawer',
       '<div class="pg-drawer_top">' +
-        '<a class="pg-drawer_logo" href="/" aria-label="Apex Care Manchester home">' + (logo ? logo.outerHTML : 'Apex Care Manchester') + '</a>' +
+        '<a class="pg-drawer_logo" href="/" aria-label="apexautocaremcr home">' + (logo ? logo.outerHTML : 'apexautocaremcr') + '</a>' +
         '<button type="button" class="pg-drawer_close" aria-label="Close menu">' +
           '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M4 4l12 12M16 4L4 16"/></svg>' +
         '</button>' +
