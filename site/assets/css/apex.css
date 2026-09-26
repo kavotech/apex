@@ -285,6 +285,9 @@ html.w-mod-js .button.is-secondary.is-alternate { visibility: visible !important
   .process_link-block { align-items: flex-start; }
   .process_content-wrapper { flex: 1 1 0%; }
   .process_link-text { overflow-wrap: anywhere; }
+  /* Keep the progress cover above the timeline from painting over its heading.
+     Clipping preserves the progress line's sticky scrolling behavior. */
+  .timeline10_progress { clip-path: inset(0); }
   /* The timeline markup alternates card and marker order. Give both versions
      the same mobile columns so the text card never lands in a max-content col. */
   .timeline10_row {
