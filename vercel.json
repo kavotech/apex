@@ -1,0 +1,32 @@
+{
+  "framework": null,
+  "buildCommand": null,
+  "installCommand": null,
+  "outputDirectory": "site",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/index", "destination": "/", "permanent": true },
+    { "source": "/design", "destination": "/services", "permanent": true },
+    { "source": "/design.html", "destination": "/services", "permanent": true },
+    { "source": "/the-gallery", "destination": "/gallery", "permanent": true },
+    { "source": "/the-gallery.html", "destination": "/gallery", "permanent": true },
+    { "source": "/project/:path*", "destination": "/gallery", "permanent": true },
+    { "source": "/projects/:path*", "destination": "/gallery", "permanent": true },
+    { "source": "/privacy-policy", "destination": "/privacy", "permanent": true }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "X-Frame-Options", "value": "SAMEORIGIN" }
+      ]
+    },
+    {
+      "source": "/assets/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=86400" }]
+    }
+  ]
+}

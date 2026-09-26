@@ -1,0 +1,188 @@
+/*
+  Apex Care Manchester — additions layered on top of the master template stylesheet (webflow.css).
+  Everything here reuses the template's own colour, radius and type tokens. It only covers pieces the
+  template did not ship: a five-link navbar fit, stats grid, service-area grid, gallery filters + lightbox,
+  the quote modal options and form status messages.
+*/
+
+/* Apex palette preserves the template's dimensions, breakpoints and motion. */
+:root {
+  --_color---colour--neutral--white: #fff;
+  --_color---colour--brand--brand-950: #111214;
+  --_color---colour--brand--brand-900: #1b1c20;
+  --_color---colour--brand--brand-800: #303137;
+  --_color---colour--brand--brand-700: #42434a;
+  --_color---colour--brand2--brand2-50: #fff;
+  --_color---colour--brand2--brand2-100: #e9e9eb;
+  --_color---colour--brand2--brand2-200: #c9c9cd;
+  --_color---colour--brand2--brand2-300: #ed5261;
+  --_color---colour--brand2--brand2-500: #d91f32;
+}
+body { background: #111214; color: #fff; }
+[data-theme="light"] {
+  background-color: #1b1c20;
+  color: #fff;
+  --_color---colour--neutral--black: #fff;
+  --color-scheme-1--text-primary: #fff;
+  --color-scheme-1--text-secondary: #ddd;
+}
+.navbar_component.navbar-light,
+.navbar_component.navbar-light .navbar_logo,
+.navbar_component.navbar-light .navbar_link,
+.navbar_component.navbar-light .button.is-navbar-button { color: #fff; }
+.navbar_component.navbar-light .menu-icon_line-top,
+.navbar_component.navbar-light .menu-icon_line-middle,
+.navbar_component.navbar-light .menu-icon_line-bottom { background-color: #fff; }
+.button:not(.is-link), .button.is-alternate:not(.is-link) { background-color: #c91c2e; border-color: #c91c2e; color: #fff; }
+.button:not(.is-link):hover { background-color: #a91424; border-color: #a91424; }
+.button.is-secondary, .button.is-secondary.is-alternate { background-color: transparent; border-color: #fff; color: #fff; }
+.button.is-secondary:hover { background-color: #c91c2e; border-color: #c91c2e; }
+.button.is-link { color: inherit; }
+.apex-wordmark { display: block; width: 100%; font-family: Inter, sans-serif; font-weight: 800; line-height: .95; letter-spacing: -.04em; }
+.apex-wordmark > span { display: block; white-space: nowrap; }
+.apex-wordmark small { display: block; font-size: .3em; line-height: 1.6; letter-spacing: .32em; font-weight: 500; }
+.navbar_logo .apex-wordmark { font-size: clamp(1.25rem, 2vw, 1.8rem); }
+.modal_logo .apex-wordmark { font-size: 2rem; }
+.hero_logo .apex-wordmark, .footer_image .apex-wordmark { font-size: clamp(2.8rem, 13vw, 13rem); }
+.hero_logo .apex-wordmark { font-size: clamp(2.6rem, 9vw, 7.5rem); }
+.hero_logo-wrapper { align-items: center; }
+.hero_logo { padding-top: 0; }
+.section_hero .button.is-secondary[data-modal-trigger="quote"] { background: #c91c2e; border-color: #c91c2e; color: #fff; }
+.modal_component, .modal_content-wrapper { color: #fff; }
+.modal_content-wrapper { background-color: #1b1c20; }
+.modal_content-form { background-color: #25262b; color: #fff; }
+.modal-content, .modal_bg { background-color: #25262b; }
+.pg-drawer_logo .apex-wordmark { font-size: 1.5rem; }
+.apex-includes { padding-left: 1.2em; margin: .5rem 0; line-height: 1.65; }
+.apex-includes li + li { margin-top: .3rem; }
+.apex-review-pending { max-width: 42rem; border-left: 3px solid #d91f32; padding-left: 1.5rem; }
+.form_input option { background: #fff; color: #111214; }
+.pg-stat_number, .stats42_number { color: #ff6372; }
+
+/* Accessible focus ring (keyboard only) */
+:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+/* Navbar: room for five links instead of three */
+@media screen and (min-width: 992px) {
+  .navbar_component { max-width: 72rem; }
+  .navbar_link { padding: .5rem .75rem; }
+  .navbar_logo { max-width: 14rem; }
+}
+@media screen and (min-width: 992px) and (max-width: 1150px) {
+  .navbar_link { padding: .5rem .5rem; }
+}
+
+/* Stats row (replaces the logo strip) */
+.pg-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem 2rem;
+  margin-top: 1rem;
+}
+.pg-stat {
+  border-top: var(--_ui-styles---stroke--divider-width) solid var(--_color---opacity--alpha-white-30);
+  padding-top: 1.25rem;
+}
+.pg-stat_number { margin-bottom: .5rem; }
+@media screen and (max-width: 767px) {
+  .pg-stats { gap: 2rem 1.5rem; }
+}
+
+/* Service areas (uses the template's gallery-details items) */
+.pg-areas {
+  display: grid;
+  grid-template-columns: 1.3fr 1.3fr .8fr;
+  gap: 2rem;
+  width: 100%;
+}
+.pg-areas .text-size-s { line-height: 1.7; }
+@media screen and (max-width: 767px) {
+  .pg-areas { grid-template-columns: 1fr; gap: 2.5rem; }
+}
+
+/* Gallery: filters, grid, lightbox */
+.pg-filters { display: flex; flex-wrap: wrap; gap: .75rem; }
+.pg-filter { cursor: pointer; font: inherit; }
+.pg-filter.is-active,
+.pg-filter.is-active:hover {
+  background-color: var(--_color---colour--neutral--black);
+  border-color: var(--_color---colour--neutral--black);
+  color: var(--_color---colour--brand--brand-50);
+}
+.pg-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 3rem;
+}
+.pg-tile { transition: opacity .35s ease, transform .35s ease; cursor: zoom-in; text-decoration: none; }
+.pg-tile.is-hiding { opacity: 0; transform: scale(.97); }
+.pg-tile[hidden] { display: none; }
+.pg-tile .recentwork_image { transition: transform .6s ease; }
+.pg-tile:hover .recentwork_image { transform: scale(1.05); }
+.pg-tile_label { margin-top: .5rem; font-size: .8125rem; opacity: .75; }
+.pg-empty { display: none; margin-top: 2rem; }
+.pg-empty.is-visible { display: block; }
+@media screen and (max-width: 991px) { .pg-grid { grid-template-columns: repeat(2, 1fr); } }
+@media screen and (max-width: 479px) { .pg-grid { grid-template-columns: 1fr; } }
+
+.pg-ba-caption { margin-bottom: 2rem; }
+.pg-ba-item + .pg-ba-item { margin-top: var(--_ui-styles---spacing--12); }
+
+.pg-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: var(--_ui-styles---z-index--highest);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 3.5rem 1rem 2rem;
+  background-color: rgba(27, 30, 27, .94);
+  color: var(--_color---colour--neutral--white);
+  opacity: 0;
+  transition: opacity .3s ease;
+}
+.pg-lightbox.is-open { display: flex; }
+.pg-lightbox.is-visible { opacity: 1; }
+.pg-lightbox_img { max-width: 100%; max-height: 78dvh; object-fit: contain; border-radius: var(--_ui-styles---radius--xs); }
+.pg-lightbox_caption { text-align: center; font-size: .9375rem; }
+.pg-lightbox_btn {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border: 1px solid var(--_color---colour--neutral--white);
+  border-radius: var(--_ui-styles---radius--xs);
+  background: transparent;
+  color: inherit;
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: background-color .2s;
+}
+.pg-lightbox_btn:hover { background-color: var(--_color---opacity--alpha-white-10); }
+.pg-lightbox_close { top: 1rem; right: 1rem; }
+.pg-lightbox_prev { left: 1rem; top: 50%; transform: translateY(-50%); }
+.pg-lightbox_next { right: 1rem; top: 50%; transform: translateY(-50%); }
+@media screen and (max-width: 767px) {
+  .pg-lightbox_prev, .pg-lightbox_next { top: auto; bottom: 1rem; transform: none; }
+}
+
+/* Quote modal options */
+.pg-quote-options { display: grid; gap: 1rem; align-content: center; height: 100%; }
+.pg-quote-options .button { width: 100%; }
+.pg-quote-note { font-size: .875rem; opacity: .7; margin-top: .5rem; }
+
+/* Contact form status */
+.pg-form-status { display: none; margin-top: 1rem; }
+.pg-form-status.is-visible { display: block; }
+.pg-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.form_component .form_form { max-width: 40rem; }
+.pg-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+@media screen and (max-width: 479px) { .pg-form-row { grid-template-columns: 1fr; } }
