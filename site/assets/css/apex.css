@@ -285,6 +285,22 @@ html.w-mod-js .button.is-secondary.is-alternate { visibility: visible !important
   .process_link-block { align-items: flex-start; }
   .process_content-wrapper { flex: 1 1 0%; }
   .process_link-text { overflow-wrap: anywhere; }
+  /* The timeline markup alternates card and marker order. Give both versions
+     the same mobile columns so the text card never lands in a max-content col. */
+  .timeline10_row {
+    grid-template-columns: 2rem minmax(0, 1fr);
+    align-items: stretch;
+  }
+  .timeline10_circle-wrapper { grid-column: 1; grid-row: 1; }
+  .timeline10_item {
+    grid-column: 2;
+    grid-row: 1;
+    min-width: 0;
+    overflow: visible;
+    padding: 1.25rem;
+  }
+  .timeline10_item h3,
+  .timeline10_item p { min-width: 0; overflow-wrap: anywhere; }
 
   h1, h2, h3, h4, h5, h6,
   [class*="heading-style-"] {
