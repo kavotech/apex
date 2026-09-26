@@ -260,6 +260,32 @@ html.w-mod-js .button.is-secondary.is-alternate { visibility: visible !important
 
 /* Prevent narrow mobile columns and tight leading from clipping copy or glyphs. */
 @media screen and (max-width: 767px) {
+  /* Let mobile flex/grid content shrink to the viewport instead of keeping
+     long headings and package names at their intrinsic width. */
+  .page-wrapper,
+  main,
+  .container-large,
+  .max-width-large,
+  .max-width-medium,
+  .max-width-small,
+  .intro_component > *,
+  .process_link-block,
+  .process_link-block > *,
+  .process_content-wrapper,
+  .service_item,
+  .service_item-content,
+  .timeline10_row,
+  .timeline10_row > *,
+  .recentwork_title,
+  .cta_component,
+  .footer_top-wrapper > * {
+    min-width: 0;
+    max-width: 100%;
+  }
+  .process_link-block { align-items: flex-start; }
+  .process_content-wrapper { flex: 1 1 0%; }
+  .process_link-text { overflow-wrap: anywhere; }
+
   h1, h2, h3, h4, h5, h6,
   [class*="heading-style-"] {
     min-width: 0;
