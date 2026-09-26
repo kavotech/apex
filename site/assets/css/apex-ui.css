@@ -6,7 +6,7 @@
 :root {
   --pg-ink: #111214;
   --pg-cream: #ffffff;
-  --pg-accent: #d91f32;
+  --pg-accent: #087fc1;
   --pg-ease: cubic-bezier(.22, .8, .2, 1);
   --pg-shine: inset 2px 2px 20px rgba(255, 255, 255, .22), inset -1px -1px 1px 1px rgba(255, 255, 255, .12);
 }
@@ -243,6 +243,6 @@ html.pg-anim .pg-clip.is-in img { transform: scale(1); }
 }
 
 /* Apex accent colours for existing interactive surfaces. */
-.pg-drawer_cta, .pg-cookie_btn.is-primary { background: #c91c2e; color: #fff; border-color: #c91c2e; }
-.pg-cookie_btn.is-primary:hover { background: #a91424; }
-.pg-filter.is-active, .pg-filter.is-active:hover { background: #c91c2e; color: #fff; border-color: #c91c2e; }
+.pg-drawer_cta, .pg-cookie_btn.is-primary { background: #087fc1; color: #fff; border-color: #087fc1; }
+.pg-cookie_btn.is-primary:hover { background: #066ba6; }
+.pg-filter.is-active, .pg-filter.is-active:hover { background: #087fc1; color: #fff; border-color: #087fc1; }

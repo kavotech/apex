@@ -15,8 +15,8 @@
   --_color---colour--brand2--brand2-50: #fff;
   --_color---colour--brand2--brand2-100: #e9e9eb;
   --_color---colour--brand2--brand2-200: #c9c9cd;
-  --_color---colour--brand2--brand2-300: #ed5261;
-  --_color---colour--brand2--brand2-500: #d91f32;
+  --_color---colour--brand2--brand2-300: #48b5f2;
+  --_color---colour--brand2--brand2-500: #087fc1;
 }
 body { background: #111214; color: #fff; }
 [data-theme="light"] {
@@ -33,10 +33,10 @@ body { background: #111214; color: #fff; }
 .navbar_component.navbar-light .menu-icon_line-top,
 .navbar_component.navbar-light .menu-icon_line-middle,
 .navbar_component.navbar-light .menu-icon_line-bottom { background-color: #fff; }
-.button:not(.is-link), .button.is-alternate:not(.is-link) { background-color: #c91c2e; border-color: #c91c2e; color: #fff; }
-.button:not(.is-link):hover { background-color: #a91424; border-color: #a91424; }
+.button:not(.is-link), .button.is-alternate:not(.is-link) { background-color: #087fc1; border-color: #087fc1; color: #fff; }
+.button:not(.is-link):hover { background-color: #066ba6; border-color: #066ba6; }
 .button.is-secondary, .button.is-secondary.is-alternate { background-color: transparent; border-color: #fff; color: #fff; }
-.button.is-secondary:hover { background-color: #c91c2e; border-color: #c91c2e; }
+.button.is-secondary:hover { background-color: #087fc1; border-color: #087fc1; }
 .button.is-link { color: inherit; }
 .apex-wordmark { display: block; width: 100%; font-family: Inter, sans-serif; font-weight: 800; line-height: .95; letter-spacing: -.04em; }
 .apex-wordmark > span { display: block; white-space: nowrap; }
@@ -47,7 +47,7 @@ body { background: #111214; color: #fff; }
 .hero_logo .apex-wordmark { font-size: clamp(2.6rem, 9vw, 7.5rem); }
 .hero_logo-wrapper { align-items: center; }
 .hero_logo { padding-top: 0; }
-.section_hero .button.is-secondary[data-modal-trigger="quote"] { background: #c91c2e; border-color: #c91c2e; color: #fff; }
+.section_hero .button.is-secondary[data-modal-trigger="quote"] { background: #087fc1; border-color: #087fc1; color: #fff; }
 .modal_component, .modal_content-wrapper { color: #fff; }
 .modal_content-wrapper { background-color: #1b1c20; }
 .modal_content-form { background-color: #25262b; color: #fff; }
@@ -55,15 +55,15 @@ body { background: #111214; color: #fff; }
 .pg-drawer_logo .apex-wordmark { font-size: 1.5rem; }
 .apex-includes { padding-left: 1.2em; margin: .5rem 0; line-height: 1.65; }
 .apex-includes li + li { margin-top: .3rem; }
-.apex-review-pending { max-width: 42rem; border-left: 3px solid #d91f32; padding-left: 1.5rem; }
+.apex-review-pending { max-width: 42rem; border-left: 3px solid #087fc1; padding-left: 1.5rem; }
 .form_input option { background: #fff; color: #111214; }
-.pg-stat_number, .stats42_number { color: #ff6372; }
+.pg-stat_number, .stats42_number { color: #48b5f2; }
 
 /* These cards used a light surface token while inheriting white copy. */
 .timeline10_item { background-color: #25262b; color: #fff; border-color: #54555c; }
-.timeline10_circle { background-color: #e32b40; box-shadow: 0 0 0 8px #1b1c20; }
+.timeline10_circle { background-color: #087fc1; box-shadow: 0 0 0 8px #1b1c20; }
 .timeline10_line { background-color: #54555c; }
-.timeline10_progress-line { background-color: #e32b40; }
+.timeline10_progress-line { background-color: #087fc1; }
 .timeline10_progress-line-cover { background-color: #1b1c20; }
 .timeline10_fade-overlay-top { background-image: linear-gradient(#1b1c20, transparent); }
 .timeline10_fade-overlay-bottom { background-image: linear-gradient(transparent, #1b1c20); }
@@ -73,7 +73,7 @@ body { background: #111214; color: #fff; }
 
 /* Keep the supplied logo intact and readable in each existing brand slot. */
 .apex-logo { display: block; width: 100%; height: 100%; object-fit: contain; }
-.navbar_logo .apex-logo { width: 4rem; height: 4rem; margin: auto; }
+.navbar_logo .apex-logo { width: 2.4rem; height: 2.4rem; margin: auto; }
 .pg-drawer_logo .apex-logo { width: 5rem; height: 5rem; }
 .pg-drawer_logo .apex-logo { display: block; margin: 0; }
 .modal_logo .apex-logo { width: 8rem; height: 8rem; }
@@ -81,7 +81,7 @@ body { background: #111214; color: #fff; }
 .footer_image .apex-logo { width: min(100%, 22rem); height: auto; margin: auto; }
 .pg-drawer_logo img { display: block; width: 5rem; height: 5rem; object-fit: contain; }
 @media (max-width: 991px) {
-  .navbar_logo .apex-logo { width: 3.5rem; height: 3.5rem; margin: 0; }
+.navbar_logo .apex-logo { width: 2.2rem; height: 2.2rem; margin: 0; }
 }
 
 /* Webflow's first-paint rules hide animated copy until its runtime runs. Keep the
