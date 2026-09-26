@@ -285,6 +285,7 @@
      ================================================================================= */
   function initReveal() {
     if (!root.classList.contains('pg-anim') || !('IntersectionObserver' in window)) return;
+    var mobileMotion = window.matchMedia && window.matchMedia('(max-width: 991px)').matches;
 
     // [selector, variant, stagger (ms between siblings)]
     var specs = [
@@ -304,8 +305,15 @@
       ['.form_form > *', 'pg-up', 80],
       ['.footer_left-wrapper > *, .footer_right-wrapper > *, .footer_bottom-wrapper', 'pg-up', 70]
     ];
+    if (mobileMotion) {
+      specs.push(
+        ['.section_intro .intro_content-left, .section_logo .logo_component, .section_cta .cta_component', 'pg-up', 100],
+        ['main .service_item', 'pg-up', 100]
+      );
+    }
     // things the template already animates (or that must stay put)
     var skip = '.section_hero, .section_header, .cta_top, .cta_bottom, [data="scroll-text"], .service_item, .hero_logo, .navbar_component, .modal_wrapper, .pg-drawer, .pg-cookie, .pg-lightbox, .header108_component, .map_content';
+    if (mobileMotion) skip = skip.replace(', .service_item', '');
 
     var seen = new Set();
     var targets = [];

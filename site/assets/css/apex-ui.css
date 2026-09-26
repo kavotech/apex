@@ -207,7 +207,12 @@ html.pg-anim .section_hero .max-width-small p { animation: pg-rise 1s var(--pg-e
   html.pg-anim .section_hero h1 { animation: pg-rise 1s var(--pg-ease) .2s both; }
   html.pg-anim .section_hero .hero_content .button-group { animation: pg-rise 1s var(--pg-ease) .75s both; }
   html.pg-anim .section_hero .hero_logo-wrapper { animation: pg-rise-big 1.3s var(--pg-ease) .5s both; }
-  html.pg-anim .hero_background-image, html.pg-anim .header_background-image { transform: translate3d(0, var(--pg-py, 0px), 0) scale(1.12); will-change: transform; }
+  html.pg-anim .hero_background-image, html.pg-anim .header_background-image { transform: translate3d(0, var(--pg-py, 0px), 0) scale(1.22); will-change: transform; }
+  /* Keep mobile accent controls on the Apex blue palette. */
+  .button:not(.is-link), .pg-filter.is-active, .pg-drawer_cta, .pg-cookie_btn.is-primary { background-color: #087fc1; border-color: #087fc1; }
+  .swiper-pagination-bullet { background-color: #48b5f2 !important; }
+  .w-file-upload-error-msg { color: #087fc1; }
+  .form_message-error { color: #087fc1; background-color: #e8f5fc; border-color: #b9e4fa; }
 }
 @media screen and (min-width: 992px) {
   html.pg-anim .hero_background-image, html.pg-anim .header_background-image { animation: pg-zoom-out 2.4s var(--pg-ease) both; }
