@@ -34,7 +34,7 @@ The consent panel retains Accept all, Reject non-essential and Customise control
 
 ## Gallery
 
-The gallery uses supplied vehicle photos, Exterior/Interior filters, a keyboard-accessible lightbox and before/after sliders. Visible photo captions and numbers are removed; descriptive image alt text is retained. The homepage carousel links to the gallery. The supplied Apex logo is used by social sharing tags instead of the unused legacy sharing image.
+The gallery uses supplied vehicle photos, Exterior/Interior filters, a keyboard-accessible lightbox and before/after sliders. Visible photo captions and numbers are removed; descriptive image alt text is retained. The homepage carousel links to the gallery. Social sharing tags use `site/assets/img/apex-whatsapp-glass-v1.jpg`, a 1200 × 628 glass-effect Apex card. The image has an absolute HTTPS URL and explicit Open Graph dimensions and MIME type. Its generation prompt is recorded in `docs/share-image-prompt.md`.
 
 ## Domain and search launch
 

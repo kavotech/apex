@@ -1,0 +1,9 @@
+# WhatsApp sharing image
+
+Created with the built-in image-generation tool, using the supplied Apex logo and blue BMW photograph as references. The generated image was exported as a 1200 × 628 JPEG for the website (approximately 180 KB).
+
+Output: `site/assets/img/apex-whatsapp-glass-v1.jpg`
+
+## Final generation prompt
+
+Use case: compositing / ads-marketing. Create one finished website social-sharing image for WhatsApp previews for apexautocaremcr, a Manchester car detailing business. Wide landscape approximately 1.91:1, ideally 1536 x 800 pixels. Input 1 is the exact supplied blue circular APEX AUTOCARE logo: preserve its identity, do not redesign it. Input 2 is a real blue BMW customer vehicle photo: use the actual car appearance as a supporting background photograph, crop away the screenshot's black bars and phone interface, and do not invent a different vehicle. Design: refined dark charcoal and electric blue palette; a large translucent frosted glass panel with rounded corners, subtle blur, polished light-catching rim and soft realistic reflections floating above a darkened photographic background. Blue BMW on the right half, naturally integrated and recognizable; high contrast typography on the left within the glass. The supplied logo prominent near upper left. Plenty of clear space, premium automotive editorial style, restrained blue glow. Exact visible text: 'apexautocaremcr' as the primary brand line, 'Car Detailing & Valeting' as the main message, 'Manchester' as small location text, and 'www.apexautocaremcr.co.uk' as a legible bottom line. All text must be spelled exactly and readable at small preview sizes. Keep logo and essential text inside generous 8 percent margins. No prices, no reviews, no ratings, no invented awards, no extra copy, no watermarks. The final result should look like a polished glass-effect social card, not a screenshot of a website.
