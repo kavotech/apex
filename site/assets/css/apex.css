@@ -263,6 +263,7 @@ html.w-mod-js .button.is-secondary.is-alternate { visibility: visible !important
   margin-top: 3rem;
 }
 .pg-tile { transition: opacity .35s ease, transform .35s ease; cursor: zoom-in; text-decoration: none; }
+.pg-grid > .pg-tile[data-alt="Black BMW rear exterior"] { display: none !important; }
 .pg-tile.is-hiding { opacity: 0; transform: scale(.97); }
 .pg-tile[hidden] { display: none; }
 .pg-tile .recentwork_image { transition: transform .6s ease; }
