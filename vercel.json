@@ -6,6 +6,12 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "apexmcr.vercel.app" }],
+      "destination": "https://www.apexautocaremcr.co.uk/:path*",
+      "permanent": true
+    },
     { "source": "/index", "destination": "/", "permanent": true },
     { "source": "/design", "destination": "/services", "permanent": true },
     { "source": "/design.html", "destination": "/services", "permanent": true },

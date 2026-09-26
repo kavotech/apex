@@ -21,7 +21,7 @@ If the key is missing, the endpoint returns 503; if Resend rejects or times out,
 
 ## Information still needed
 
-- The www production domain is connected. Connect the non-www domain as well and redirect it to www when its DNS is ready.
+- Both production hostnames are connected; non-www redirects to www.
 - A Google Analytics measurement ID and Google Search Console domain verification, if analytics and search reporting are wanted.
 - Business address and any confirmed social profile URLs.
 - Approved customer testimonials. The existing review section is retained without inherited endorsements.
@@ -45,6 +45,12 @@ Canonical URLs, Open Graph URLs, unique page descriptions, business/website/page
 3. Add a domain property in Google Search Console and publish its provided DNS verification record. Submit `https://www.apexautocaremcr.co.uk/sitemap.xml` and inspect the homepage. Account verification and submission are separate from publishing the website files.
 
 Reference: [Google sitemap guidance](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap).
+
+### Checking sitemap fetch errors
+
+Run `node scripts/check-crawl.mjs` after deploying. It requests the live sitemap, robots file and every listed page with regular and Googlebot user-agents, checks status codes, content types, canonicals and indexing directives, and verifies the old Vercel/non-www redirects. This does not impersonate Google's network or confirm indexing.
+
+Submit `https://www.apexautocaremcr.co.uk/sitemap.xml` under the Search Console domain property `apexautocaremcr.co.uk` or URL-prefix property `https://www.apexautocaremcr.co.uk/`. An old `apexmcr.vercel.app` property is not the production domain's property. The old Vercel host now permanently redirects to the corresponding production URL. If a fetch error remains, inspect the exact reported URL, error and last attempt time, run URL Inspection's live test on an affected page, and inspect Vercel firewall logs for the failed Google request. Passing public HTTP checks alone does not establish that Google's fetch succeeded.
 
 ## Google Analytics activation
 
