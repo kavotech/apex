@@ -88,19 +88,18 @@ h1, h2, h3,
 .timeline10_fade-overlay-bottom { background-image: linear-gradient(transparent, #1b1c20); }
 .stats42_item { background-color: #25262b; color: #fff; }
 
-/* Static photo grid for the About page's Care, Finish and Communication section. */
+/* Single static photo for the About page's Care, Finish and Communication section. */
 .header108_component.is-static { height: auto; }
 .apex-care-photos {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
+  max-width: 44rem;
+  margin-inline: auto;
   padding: 3rem 5%;
 }
 .apex-care-photo { overflow: hidden; border-radius: var(--_ui-styles---radius--xs); }
 .apex-care-photo img { display: block; width: 100%; height: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
-@media (max-width: 767px) {
-  .apex-care-photos { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; }
-}
+/* Keep photos caption-free, including lightboxes created by older cached scripts. */
+.recentwork_content, .recentwork_number, .pg-ba-caption,
+.pg-lightbox_caption, .w-lightbox-caption { display: none !important; }
 /* The shared template leaves these small CTA labels at zero opacity. */
 .cta_top .text-size-s { opacity: .75 !important; visibility: visible !important; }
 

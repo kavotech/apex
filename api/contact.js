@@ -3,10 +3,10 @@
  *
  * Uses the Resend REST API (https://resend.com). Configure in Vercel → Project → Settings → Environment Variables:
  *   RESEND_API_KEY       (required)  API key from your Resend account
- *   CONTACT_FROM_EMAIL   (required) verified sender for apexautocaremcr
- *   CONTACT_TO_EMAIL     (required) Apex booking recipient
+ *   CONTACT_FROM_EMAIL   (optional) override the verified Apex sender
+ *   CONTACT_TO_EMAIL     (optional) override the Apex booking recipient
  *
- * If any required setting is missing the endpoint answers 503 and the page offers a pre-filled WhatsApp message,
+ * If the API key is missing the endpoint answers 503 and the page offers a pre-filled WhatsApp message,
  * so visitors can always reach the business.
  */
 
@@ -22,6 +22,9 @@ module.exports = async function handler(req, res) {
   }
 
   const body = typeof req.body === 'string' ? safeParse(req.body) : (req.body || {});
+  if (!body || typeof body !== 'object' || Array.isArray(body)) {
+    return res.status(400).json({ error: 'invalid_input' });
+  }
 
   // Honeypot: real visitors never fill this in. Pretend success so bots learn nothing.
   if (clean(body.company, 200)) return res.status(200).json({ ok: true });
@@ -39,8 +42,8 @@ module.exports = async function handler(req, res) {
   }
 
   const key = process.env.RESEND_API_KEY;
-  const from = process.env.CONTACT_FROM_EMAIL;
-  const to = process.env.CONTACT_TO_EMAIL;
+  const from = process.env.CONTACT_FROM_EMAIL?.trim() || 'Apex Auto Care MCR <no-reply@apexautocaremcr.co.uk>';
+  const to = process.env.CONTACT_TO_EMAIL?.trim() || 'apexautocaremcr@gmail.com';
   if (!key || !from || !to) return res.status(503).json({ error: 'not_configured' });
 
   const rows = [['Name', d.name], ['Phone', d.phone], ['Email', d.email], ['Postcode', d.postcode], ['Service', d.service], ['Message', d.message || '(none)']];
@@ -50,6 +53,7 @@ module.exports = async function handler(req, res) {
   try {
     const r = await fetch('https://api.resend.com/emails', {
       method: 'POST',
+      signal: AbortSignal.timeout(8000),
       headers: { Authorization: `Bearer ${key}`, 'Content-Type': 'application/json' },
       body: JSON.stringify({
         from,
@@ -61,12 +65,12 @@ module.exports = async function handler(req, res) {
       }),
     });
     if (!r.ok) {
-      console.error('Resend error', r.status, await r.text());
+      console.error('Resend rejected booking email', r.status);
       return res.status(502).json({ error: 'send_failed' });
     }
     return res.status(200).json({ ok: true });
   } catch (err) {
-    console.error('Contact handler error', err);
+    console.error('Contact email request failed', err.name);
     return res.status(502).json({ error: 'send_failed' });
   }
 };

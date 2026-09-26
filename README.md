@@ -15,15 +15,15 @@ There is no framework build or package installation. Vercel serves site directly
 
 ## Booking email setup
 
-Set RESEND_API_KEY, CONTACT_FROM_EMAIL (an Apex verified sender), and CONTACT_TO_EMAIL (the Apex booking recipient) in Vercel, then redeploy. Replace any inherited deployment email settings with Apex's configuration. No sender or recipient address is assumed.
+Set RESEND_API_KEY in Vercel's production environment, then redeploy. The default sender is `Apex Auto Care MCR <no-reply@apexautocaremcr.co.uk>` and the admin recipient is `apexautocaremcr@gmail.com`. Verify `apexautocaremcr.co.uk` in Resend with its required DNS records. Optional CONTACT_FROM_EMAIL and CONTACT_TO_EMAIL variables override these defaults; remove any inherited settings for a different business. Customer email is used as Reply-To, so replying to an enquiry reaches the customer. The key stays server-side and must never be committed.
 
-If any setting is missing, the endpoint returns 503 and the page offers a pre-filled WhatsApp message and direct phone link. An enquiry does not confirm a booking.
+If the key is missing, the endpoint returns 503; if Resend rejects or times out, it returns 502. In either case the page offers a pre-filled WhatsApp message and direct phone link. An enquiry does not confirm a booking. Run `node scripts/check-contact.cjs` for mocked email, validation and failure-path checks without sending mail. A successful API response means Resend accepted the email; delivery is checked separately in Resend's dashboard or the recipient inbox.
 
 ## Information still needed
 
 - The www production domain is connected. Connect the non-www domain as well and redirect it to www when its DNS is ready.
 - A Google Analytics measurement ID and Google Search Console domain verification, if analytics and search reporting are wanted.
-- Booking email configuration, business address and any confirmed social profile URLs.
+- Business address and any confirmed social profile URLs.
 - Approved customer testimonials. The existing review section is retained without inherited endorsements.
 
 Cleaning packages start at £30, £50 and £100 depending on vehicle size. Maintenance is available after a Full Deep Detail (Full Deep Clean): bi-weekly maintenance £60–£80 or monthly maintenance £80–£100.

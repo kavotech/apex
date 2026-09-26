@@ -19,3 +19,9 @@ $RECYCLE.BIN/
 # Temp / logs
 *.tmp
 *.log
+
+# Local credentials
+.env
+.env.*
+!.env.example
+.vercel/
