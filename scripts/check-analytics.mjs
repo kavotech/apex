@@ -15,7 +15,7 @@ function run(id, consent, readyState = 'complete') {
     head: { appendChild: script => scripts.push(script) },
     addEventListener: (event, callback) => { events[event] = callback; }
   };
-  vm.runInNewContext(source, { window, document, location: { origin: 'https://apexautocaremcr.co.uk', pathname: '/contact', search: '?email=private@example.com' } });
+  vm.runInNewContext(source, { window, document, location: { origin: 'https://www.apexautocaremcr.co.uk', pathname: '/contact', search: '?email=private@example.com' } });
   return { window, scripts, events };
 }
 for (const id of ['', undefined, 'not-a-real-id', 'GTM-EXAMPLE']) {
@@ -34,7 +34,7 @@ const commands = result.window.dataLayer.map(args => Array.from(args));
 assert.equal(commands[0][0], 'consent');
 assert.equal(commands[0][1], 'default');
 assert.equal(commands[0][2].analytics_storage, 'denied');
-assert.equal(commands.find(c => c[0] === 'config')[2].page_location, 'https://apexautocaremcr.co.uk/contact');
+assert.equal(commands.find(c => c[0] === 'config')[2].page_location, 'https://www.apexautocaremcr.co.uk/contact');
 result.events['pg:consent-change']({ detail: { analytics: true } });
 assert.equal(result.scripts.length, 1);
 result.events['pg:consent-change']({ detail: { analytics: false } });

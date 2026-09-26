@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /api/
 
-Sitemap: https://apexautocaremcr.co.uk/sitemap.xml
+Sitemap: https://www.apexautocaremcr.co.uk/sitemap.xml

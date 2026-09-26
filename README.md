@@ -1,6 +1,6 @@
 # apexautocaremcr
 
-Static website for car washing, valeting and vehicle detailing in Manchester, UK. Phone: +44 7414 505029. Email: apexautocaremcr@gmail.com. Production domain: https://apexautocaremcr.co.uk.
+Static website for car washing, valeting and vehicle detailing in Manchester, UK. Phone: +44 7414 505029. Email: apexautocaremcr@gmail.com. Production domain: https://www.apexautocaremcr.co.uk.
 
 ## Project
 
@@ -21,7 +21,7 @@ If any setting is missing, the endpoint returns 503 and the page offers a pre-fi
 
 ## Information still needed
 
-- Connect the production domain in Vercel and configure its DNS; the code already uses its absolute canonical URLs and sitemap entries.
+- The www production domain is connected. Connect the non-www domain as well and redirect it to www when its DNS is ready.
 - A Google Analytics measurement ID and Google Search Console domain verification, if analytics and search reporting are wanted.
 - Booking email configuration, business address and any confirmed social profile URLs.
 - Approved customer testimonials. The existing review section is retained without inherited endorsements.
@@ -38,11 +38,11 @@ The gallery uses supplied vehicle photos, Exterior/Interior filters, a keyboard-
 
 ## Domain and search launch
 
-Canonical URLs, Open Graph URLs, unique page descriptions, business/website/page JSON-LD, `robots.txt` and a six-page XML sitemap are set up for `https://apexautocaremcr.co.uk`. The 404 page is excluded from the sitemap and marked noindex. No business address, opening hours, reviews or ratings have been invented.
+Canonical URLs, Open Graph URLs, unique page descriptions, business/website/page JSON-LD, `robots.txt` and a six-page XML sitemap are set up for `https://www.apexautocaremcr.co.uk`. The 404 page is excluded from the sitemap and marked noindex. No business address, opening hours, reviews or ratings have been invented.
 
-1. Add `apexautocaremcr.co.uk` and `www.apexautocaremcr.co.uk` to the existing Vercel project. Apply the DNS records Vercel provides at the domain registrar and set www to redirect to the non-www domain once both are connected.
+1. Add `apexautocaremcr.co.uk` and `www.apexautocaremcr.co.uk` to the existing Vercel project. Apply the DNS records Vercel provides at the domain registrar and set the non-www domain to redirect to www once both are connected.
 2. Confirm the domain serves the site over HTTPS. Check the canonical pages and `/sitemap.xml` on that domain.
-3. Add a domain property in Google Search Console and publish its provided DNS verification record. Submit `https://apexautocaremcr.co.uk/sitemap.xml` and inspect the homepage. Account verification and submission are separate from publishing the website files.
+3. Add a domain property in Google Search Console and publish its provided DNS verification record. Submit `https://www.apexautocaremcr.co.uk/sitemap.xml` and inspect the homepage. Account verification and submission are separate from publishing the website files.
 
 Reference: [Google sitemap guidance](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap).
 

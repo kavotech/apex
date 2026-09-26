@@ -4,7 +4,7 @@ import vm from 'node:vm';
 import assert from 'node:assert/strict';
 
 const root = path.resolve('site');
-const origin = 'https://apexautocaremcr.co.uk';
+const origin = 'https://www.apexautocaremcr.co.uk';
 const pages = fs.readdirSync(root).filter(file => file.endsWith('.html'));
 const descriptions = new Set();
 const canonicals = [];
