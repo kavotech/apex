@@ -212,6 +212,7 @@ html.pg-anim .section_hero .max-width-small p { animation: pg-rise 1s var(--pg-e
   .button:not(.is-link), .pg-filter.is-active, .pg-drawer_cta, .pg-cookie_btn.is-primary { background-color: #087fc1; border-color: #087fc1; }
   .swiper-pagination-bullet { background-color: #48b5f2 !important; }
   .w-file-upload-error-msg { color: #087fc1; }
+  .w-form-fail { color: #087fc1; background-color: #e8f5fc; border-color: #b9e4fa; }
   .form_message-error { color: #087fc1; background-color: #e8f5fc; border-color: #b9e4fa; }
 }
 @media screen and (min-width: 992px) {
