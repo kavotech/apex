@@ -136,8 +136,8 @@ h1, h2, h3,
 @media (min-width: 768px) {
   .service_list > .service_item,
   .stats42_list > .stats42_item { grid-area: auto !important; }
-  .service_list .service_image-wrapper { margin-top: auto; }
 }
+.service_list .service_image-wrapper { display: none; }
 @media (min-width: 992px) {
   .stats42_list > .stats42_item:nth-child(1) { grid-area: 1 / 1 / 2 / 2 !important; }
   .stats42_list > .stats42_item:nth-child(3) { grid-area: 1 / 2 / 2 / 3 !important; }
