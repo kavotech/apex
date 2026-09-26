@@ -59,6 +59,41 @@ body { background: #111214; color: #fff; }
 .form_input option { background: #fff; color: #111214; }
 .pg-stat_number, .stats42_number { color: #ff6372; }
 
+/* These cards used a light surface token while inheriting white copy. */
+.timeline10_item { background-color: #25262b; color: #fff; border-color: #54555c; }
+.timeline10_circle { background-color: #e32b40; box-shadow: 0 0 0 8px #1b1c20; }
+.timeline10_line { background-color: #54555c; }
+.timeline10_progress-line { background-color: #e32b40; }
+.timeline10_progress-line-cover { background-color: #1b1c20; }
+.timeline10_fade-overlay-top { background-image: linear-gradient(#1b1c20, transparent); }
+.timeline10_fade-overlay-bottom { background-image: linear-gradient(transparent, #1b1c20); }
+.stats42_item { background-color: #25262b; color: #fff; }
+/* The shared template leaves these small CTA labels at zero opacity. */
+.cta_top .text-size-s { opacity: .75 !important; visibility: visible !important; }
+
+/* Keep the supplied logo intact and readable in each existing brand slot. */
+.apex-logo { display: block; width: 100%; height: 100%; object-fit: contain; }
+.navbar_logo .apex-logo { width: 4rem; height: 4rem; margin: auto; }
+.pg-drawer_logo .apex-logo { width: 5rem; height: 5rem; }
+.pg-drawer_logo .apex-logo { display: block; margin: 0; }
+.modal_logo .apex-logo { width: 8rem; height: 8rem; }
+.hero_logo .apex-logo { width: 9rem; height: 9rem; margin: auto; }
+.footer_image .apex-logo { width: min(100%, 22rem); height: auto; margin: auto; }
+.pg-drawer_logo img { display: block; width: 5rem; height: 5rem; object-fit: contain; }
+@media (max-width: 991px) {
+  .navbar_logo .apex-logo { width: 3.5rem; height: 3.5rem; margin: 0; }
+}
+
+/* Webflow's first-paint rules hide animated copy until its runtime runs. Keep the
+   content readable if a script, font request or reduced-motion setting interrupts it. */
+html.w-mod-js [data="scroll-text"],
+html.w-mod-js .service_item,
+html.w-mod-js .cta_top .text-size-s,
+html.w-mod-js .cta_top .divider-white,
+html.w-mod-js .cta_top .heading-style-7xl,
+html.w-mod-js .cta_bottom .button-group .button,
+html.w-mod-js .button.is-secondary.is-alternate { visibility: visible !important; }
+
 /* Accessible focus ring (keyboard only) */
 :focus-visible {
   outline: 2px solid currentColor;

@@ -24,7 +24,7 @@
     if (!btn) return;
     var mq = window.matchMedia('(max-width: 991px)');
     var navLinks = [].slice.call(document.querySelectorAll('.navbar_menu .navbar_link'));
-    var logo = document.querySelector('.navbar_logo-link .navbar_logo .apex-wordmark');
+    var logo = document.querySelector('.navbar_logo-link .navbar_logo .apex-logo');
 
     var overlay = el('div', 'pg-drawer-overlay');
     overlay.setAttribute('aria-hidden', 'true');

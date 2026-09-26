@@ -20,7 +20,7 @@ If any setting is missing, the endpoint returns 503 and the page offers a pre-fi
 
 ## Information still needed
 
-- Apex photos, logo, favicon and social sharing image. All image files and source references are retained temporarily; gallery previews do not claim to show Apex work. The inline wordmark uses text.
+- Apex photo files and a social sharing image. Gallery previews remain temporary until the supplied photos are available locally. The supplied logo at `site/assets/img/logo.png` is used in the navigation, mobile menu, hero, footer, booking panel and icon references.
 - Confirmed production domain: add absolute canonical URLs, Open Graph URLs/images and sitemap entries, then advertise the sitemap in robots.txt. No domain is invented.
 - Booking email configuration, business address and any confirmed social profile URLs.
 - Approved customer testimonials. The existing review section is retained without inherited endorsements.
