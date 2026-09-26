@@ -52,12 +52,10 @@
       '<button class="pg-lightbox_btn pg-lightbox_close" type="button" aria-label="Close">&times;</button>' +
       '<button class="pg-lightbox_btn pg-lightbox_prev" type="button" aria-label="Previous photo">&larr;</button>' +
       '<img class="pg-lightbox_img" alt="">' +
-      '<div class="pg-lightbox_caption"></div>' +
       '<button class="pg-lightbox_btn pg-lightbox_next" type="button" aria-label="Next photo">&rarr;</button>';
     document.body.appendChild(box);
 
     var img = box.querySelector('.pg-lightbox_img');
-    var cap = box.querySelector('.pg-lightbox_caption');
     var idx = 0;
     var lastFocus = null;
 
@@ -69,7 +67,6 @@
       idx = i;
       img.src = t.getAttribute('href');
       img.alt = t.getAttribute('data-alt') || '';
-      cap.textContent = t.getAttribute('data-caption') || '';
     }
 
     function open(tile) {
@@ -107,6 +104,12 @@
       if (e.key === 'Escape') close();
       if (e.key === 'ArrowLeft') step(-1);
       if (e.key === 'ArrowRight') step(1);
+      if (e.key === 'Tab') {
+        var buttons = box.querySelectorAll('button');
+        var first = buttons[0], last = buttons[buttons.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
     });
   }
 

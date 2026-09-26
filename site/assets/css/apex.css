@@ -262,6 +262,12 @@ html.w-mod-js .button.is-secondary.is-alternate { visibility: visible !important
 @media screen and (max-width: 767px) {
   /* Let mobile flex/grid content shrink to the viewport instead of keeping
      long headings and package names at their intrinsic width. */
+  .image-right_image-wrapper,
+  .image-left_image-wrapper {
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+  }
   .page-wrapper,
   main,
   .container-large,
