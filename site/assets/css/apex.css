@@ -177,6 +177,31 @@ h1, h2, h3,
    Keep the reveal edge fixed while moving only the after photo's crop. */
 .apex-ba-item .apex-audi-comparison { container-type: inline-size; }
 .apex-audi-comparison .project-ba_after-image { object-position: 50% calc(50% + 2.43129cqw); }
+/* Fiat photos use different camera positions. Match the red dashboard switch
+   (809.626, 824.360 before; 640.656, 732.633 after in 1536x2048 originals).
+   A common 1.35x crop leaves room for the translation without exposing edges.
+   Only the outer layer is clipped by the slider, so its handle stays straight. */
+.apex-ba-item .apex-fiat-comparison { container-type: inline-size; }
+.apex-fiat-comparison .apex-comparison-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.apex-fiat-comparison .apex-comparison-photo {
+  position: absolute;
+  width: 135%;
+  max-width: none;
+  height: auto;
+  top: 50%;
+  left: 46.3415%;
+  transform: translate(-50%, -50%);
+}
+.apex-fiat-comparison .apex-comparison-photo.is-after {
+  left: 61.19233%;
+  top: calc(50% + 8.06192cqw);
+}
 .apex-ba-item .project-ba_drag-handle { color: #111214; background-color: #fff; border: 2px solid #087fc1; border-radius: 50%; width: 3rem; height: 3rem; display: grid; place-items: center; }
 @media (max-width: 767px) {
   .apex-gallery-section .apex-comparison-list { grid-template-columns: 1fr; gap: 0; padding: 0 1rem; }
