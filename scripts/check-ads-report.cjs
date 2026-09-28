@@ -91,6 +91,15 @@ test('production is gated; previews, missing enable flag and late calls cannot s
   assert.equal((await sendDailyAdsReport({ now: new Date('2026-09-28T21:00:00Z'), env, logger, fetchImpl })).status, 'outside_window');
 });
 
+test('an explicitly requested review uses its own stable test key and only the test inbox', async () => {
+  await sendDailyAdsReport({ mode: 'test', testId: 'redesign-review-2026-09-28', now, env, logger, fetchImpl: async (_, options) => {
+    assert.equal(options.headers['Idempotency-Key'], 'apex-ads-report-redesign-review-2026-09-28');
+    assert.deepEqual(JSON.parse(options.body).to, ['info@kavotech.uk']);
+    return ok('review-id');
+  } });
+  await assert.rejects(sendDailyAdsReport({ mode: 'test', testId: '../bad', now, env, logger }));
+});
+
 test('concurrent daily requests reuse exact payload/key and schedule both recipients at 21 UK', async () => {
   const stored = new Map();
   const fetchImpl = async (_, options) => {

@@ -14,6 +14,8 @@ The existing backend uses Resend's REST API. Reports reuse that provider without
 
 ## Time and reliability
 
+A further review email requires an explicit new user request. When authorized, use `node scripts/send-ads-report-test.cjs --test-id descriptive-review-name` with a stable ID for that request. This creates a separate receipt and provider key, still only sends to `info@kavotech.uk`, and never enables the daily job. Never generate new IDs to bypass a timeout, an existing receipt or a provider conflict. The initial test receipt is preserved.
+
 Vercel queues the day's report at 18:00 UTC (19:00 BST / 18:00 GMT). Hobby cron may run anywhere in that hour; the job therefore prepares the email ahead of time and passes an exact ISO timestamp to Resend's `scheduled_at`. `Intl` and the IANA **Europe/London** timezone resolve 21:00 to 20:00 UTC in BST or 21:00 UTC in GMT, including transition days. Resend schedules dispatch for that instant; actual inbox arrival depends on mail delivery and cannot be guaranteed to the second.
 
 The endpoint allows preparation only from 18:00 UTC until one minute before that day's target. It never accepts a supplied date, recipient list or test mode. After the cutoff it skips, so late retries cannot create an immediate or historical report. If activation happens after the preparation run, the first automatic report is the next day; an authenticated manual run is safe inside the window.
