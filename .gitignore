@@ -25,3 +25,4 @@ $RECYCLE.BIN/
 .env.*
 !.env.example
 .vercel/
+.local/
