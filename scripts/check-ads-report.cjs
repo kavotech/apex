@@ -68,7 +68,15 @@ test('test path always targets only info, sends immediately and ignores producti
     assert.deepEqual(body.to, ['info@kavotech.uk']);
     assert.equal(body.from, 'Apex Auto Care MCR <ads@apexautocaremcr.co.uk>');
     assert.equal(body.scheduled_at, undefined);
-    assert.equal(body.attachments, undefined);
+    assert.equal(body.attachments.length, 3);
+    for (const attachment of body.attachments) {
+      assert.equal(attachment.content_type, 'image/png');
+      assert.match(body.html, new RegExp(`cid:${attachment.content_id}`));
+      const bytes = Buffer.from(attachment.content, 'base64');
+      assert.equal(bytes.subarray(1, 4).toString(), 'PNG');
+      assert.ok(bytes.length < 60000);
+    }
+    assert.doesNotMatch(body.html, /src="https:/);
     assert.equal(options.headers['Idempotency-Key'], 'apex-ads-report-initial-test');
     return ok('test-id');
   } });

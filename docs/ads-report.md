@@ -1,6 +1,6 @@
 # Daily advertising report
 
-The existing backend uses Resend's REST API. Reports reuse that provider without changing the contact form. No PDF, analytics SDK, database, or paid scheduler is needed. All current figures are prominently marked **Demo / Mock Data**, including the subject, summary, platform sections and plain-text alternative.
+The existing backend uses Resend's REST API. Reports reuse that provider without changing the contact form. No PDF, analytics SDK, database, or paid scheduler is needed. All current figures are prominently marked **Demo / Mock Data**, including the subject, platform sections and plain-text alternative. Apex, Google Ads and Meta logos are embedded as small inline CID PNG images, so the email does not depend on remote image downloads. Client image policies may still affect display. The dashboard uses side-by-side platform cards on desktop and stacks them on mobile.
 
 ## Activation
 
@@ -45,6 +45,7 @@ Call the Google Ads API and Meta Marketing API from this server-only adapter usi
 - `lib/ads-report/schedule.cjs` — UK report date, GMT/BST conversion and bounded queue window.
 - `lib/ads-report/metrics.cjs` — deterministic mock analytics adapter and combined totals.
 - `lib/ads-report/email.cjs` — responsive table-based HTML and plain text.
+- `lib/ads-report/assets.cjs` — embeds the existing Apex icon and platform logos as inline images; no PDF.
 - `lib/ads-report/send.cjs` — recipient isolation, enable gate, Resend request, idempotency and logs.
 - `api/ads-report.js` — authenticated Vercel cron handler; no test mode exposed.
 - `scripts/check-ads-report.cjs` — offline metrics, timezone, recipients, security and duplicate-request tests.
