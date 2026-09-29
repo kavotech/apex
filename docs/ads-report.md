@@ -1,6 +1,6 @@
 # Daily advertising report
 
-The existing backend uses Resend's REST API. Reports reuse that provider without changing the contact form. No PDF, analytics SDK, database, or paid scheduler is needed. All current figures are prominently marked **Demo / Mock Data**, including the subject, platform sections and plain-text alternative. Apex, Google Ads and Meta logos are embedded as small inline CID PNG images, so the email does not depend on remote image downloads. Client image policies may still affect display. The dashboard uses side-by-side platform cards on desktop and stacks them on mobile.
+The existing backend uses Resend's REST API. Reports reuse that provider without changing the contact form. No PDF, analytics SDK, database, or paid scheduler is needed. All current figures are prominently marked **Demo / Mock Data**, in the platform sections and plain-text alternative. Apex, Google Ads and Meta logos are embedded as small inline CID PNG images, so the email does not depend on remote image downloads. Client image policies may still affect display. The dashboard uses side-by-side platform cards on desktop and stacks them on mobile.
 
 ## Activation
 
@@ -32,12 +32,12 @@ Errors log `[ads-report]` with date/mode and provider HTTP status, never credent
 {
   date: 'YYYY-MM-DD', demo: false,
   coverage: 'Describe the actual data window and freshness here.',
-  google: { adViews, interactions, websiteVisits, contactActions, calls },
+  google: { adViews, interactions, websiteVisits, contactActions },
   meta: { adViews, interactions, profileVisits, websiteVisits, contactActions }
 }
 ```
 
-Google `interactions` maps to ad clicks; Google `contactActions` currently maps to contact-page views. Calls are a subset in the mock funnel and are not added again to the combined contact total. Meta's contact actions are a separate platform metric. The email explains these definitions and that totals are not unique people. Agree on live conversion definitions before connecting real campaigns. Website/contact page views and calls require corresponding tracked conversions or analytics events; do not invent unavailable metrics.
+Google `interactions` maps to ad clicks; Google `contactActions` currently maps to contact-page views. Meta's contact actions are a separate platform metric. The email explains these definitions and that totals are not unique people. Agree on live conversion definitions before connecting real campaigns. Website/contact page views require corresponding tracked conversions or analytics events; do not invent unavailable metrics.
 
 Call the Google Ads API and Meta Marketing API from this server-only adapter using environment variables for OAuth credentials/account IDs, await it in `send.cjs`, and keep the returned model stable. Use a consistent date range/account timezone, validate results, and fail visibly if data cannot be fetched; never silently present mocks as real data. Fetching at preparation time creates a snapshot before 21:00, not a complete calendar day. For full-day figures use the previous completed UK day and label it correctly. If live reports must include activity up to exactly 21:00, use a timezone-aware scheduler with suitable timing guarantees to fetch then, and add a durable daily send ledger. No template redesign is required.
 

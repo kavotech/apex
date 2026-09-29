@@ -26,7 +26,6 @@ test('small reproducible mock funnels and accurate combined totals over a full y
       assert.ok(p.websiteVisits >= 1 && p.websiteVisits <= 8 && p.websiteVisits <= p.interactions);
       assert.ok(p.contactActions >= 0 && p.contactActions <= 5 && p.contactActions <= p.websiteVisits);
     }
-    assert.ok(report.google.calls >= 0 && report.google.calls <= 4 && report.google.calls <= report.google.contactActions);
     assert.ok(report.meta.profileVisits <= report.meta.interactions);
     for (const [key, total] of Object.entries(reportTotals(report))) assert.equal(total, report.google[key] + report.meta[key]);
   }
@@ -49,7 +48,10 @@ test('HTML and plain text explicitly disclose demo data and escape adapter text'
   const report = generateDailyAdMetrics('2026-09-28');
   report.coverage = '<script>bad()</script>';
   const email = generateAdsReportEmail(report, { test: true });
-  assert.match(email.subject, /\[TEST\].*Demo \/ Mock Data/);
+  assert.equal(email.subject, 'Apex Auto Care MCR – Daily Advertising Report – 28 September 2026');
+  assert.doesNotMatch(email.html, /\bcalls\b/i);
+  assert.doesNotMatch(email.text, /\bcalls\b/i);
+  assert.match(email.html, /Demo \/ Mock Data/);
   assert.match(email.text, /not genuine Google or Meta analytics/);
   assert.match(email.html, /@media only screen/);
   assert.match(email.html, /google-ads.png/);
