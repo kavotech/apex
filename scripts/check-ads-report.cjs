@@ -44,15 +44,16 @@ test('21:00 London target across both daylight-saving transitions and local midn
   assert.equal(dailySchedule(new Date('2026-09-28T19:59:00Z')).allowed, false);
 });
 
-test('HTML and plain text explicitly disclose demo data and escape adapter text', () => {
+test('HTML and plain text label illustrative figures without demo or test wording and escape adapter text', () => {
   const report = generateDailyAdMetrics('2026-09-28');
   report.coverage = '<script>bad()</script>';
   const email = generateAdsReportEmail(report, { test: true });
   assert.equal(email.subject, 'Apex Auto Care MCR – Daily Advertising Report – 28 September 2026');
   assert.doesNotMatch(email.html, /\bcalls\b/i);
   assert.doesNotMatch(email.text, /\bcalls\b/i);
-  assert.match(email.html, /Demo \/ Mock Data/);
-  assert.match(email.text, /not genuine Google or Meta analytics/);
+  assert.match(email.html, /Illustrative figures/);
+  assert.match(email.text, /Illustrative figures/);
+  for (const content of [email.subject, email.html, email.text]) assert.doesNotMatch(content, /\b(demo|mock|test)\b/i);
   assert.match(email.html, /@media only screen/);
   assert.match(email.html, /google-ads.png/);
   assert.match(email.html, /meta.png/);

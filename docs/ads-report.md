@@ -1,6 +1,6 @@
 # Daily advertising report
 
-The existing backend uses Resend's REST API. Reports reuse that provider without changing the contact form. No PDF, analytics SDK, database, or paid scheduler is needed. All current figures are prominently marked **Demo / Mock Data**, in the platform sections and plain-text alternative. Apex, Google Ads and Meta logos are embedded as small inline CID PNG images, so the email does not depend on remote image downloads. Client image policies may still affect display. The dashboard uses side-by-side platform cards on desktop and stacks them on mobile.
+The existing backend uses Resend's REST API. Reports reuse that provider without changing the contact form. No PDF, analytics SDK, database, or paid scheduler is needed. All current figures are labelled **Illustrative figures**, in the platform sections and plain-text alternative. Apex, Google Ads and Meta logos are embedded as small inline CID PNG images, so the email does not depend on remote image downloads. Client image policies may still affect display. The dashboard uses side-by-side platform cards on desktop and stacks them on mobile.
 
 ## Activation
 

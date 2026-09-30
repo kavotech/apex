@@ -20,7 +20,7 @@ async function main() {
   fs.closeSync(handle);
   const receipt = await sendDailyAdsReport({ mode: 'test', testId });
   fs.writeFileSync(file, JSON.stringify({ ...receipt, testId, to: 'info@kavotech.uk' }, null, 2));
-  console.log('One test accepted for info@kavotech.uk only. Confirm its arrival before enabling daily reports.');
+  console.log('One review email accepted for info@kavotech.uk only.');
 }
 
 main().catch(error => { console.error(error.code === 'EEXIST' ? 'This test was already attempted. Inspect its .local receipt and Resend; do not resend blindly.' : error.message); process.exitCode = 1; });
