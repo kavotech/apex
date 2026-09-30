@@ -21,6 +21,19 @@ The final command checks the live sitemap, robots rules, HTTP status, canonical 
 
 The verified domain property `apexautocaremcr.co.uk` reports the sitemap as **Success**, last read **29 September 2026**, with **6 discovered pages**. No public HTML pages were missing from the submitted sitemap. The overview indexing report was still processing data. URL Inspection for `/about` showed **Discovered – currently not indexed**, with no crawl yet; this is not a sitemap fetch failure.
 
+Individual URL inspections and actions completed that day:
+
+| Page | Google status before request | Action/result |
+| --- | --- | --- |
+| `/` | URL is on Google; page is indexed | Already indexed; no duplicate request |
+| `/about` | Discovered – currently not indexed | Indexing requested; priority crawl queue confirmed |
+| `/services` | URL is unknown to Google in URL Inspection | Indexing requested; priority crawl queue confirmed |
+| `/gallery` | Discovered – currently not indexed | Indexing requested; priority crawl queue confirmed |
+| `/contact` | Discovered – currently not indexed | Indexing requested; priority crawl queue confirmed |
+| `/privacy` | Discovered – currently not indexed | Indexing requested; priority crawl queue confirmed |
+
+The Services inspection report had not associated the URL with a sitemap yet, although the sitemap report counted all six entries. The live generated sitemap was verified against the deployed file, and all six canonical pages returned HTTP 200 with no indexing block. The five accepted indexing requests are pending Google processing; they are not confirmations that those pages are indexed.
+
 Use URL Inspection for a page's current crawl/indexing status and Request indexing for eligible pages. A successful request adds it to Google's queue; it does not guarantee publication or timing. Do not include redirect aliases, error pages, or duplicate `.html` URLs to inflate the sitemap count, or repeatedly submit an unchanged sitemap.
 
 References: [Google sitemap guidance](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap), [Requesting a crawl](https://developers.google.com/search/docs/crawling-indexing/ask-google-to-recrawl).
