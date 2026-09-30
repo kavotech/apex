@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://www.apexautocaremcr.co.uk/</loc></url>
-  <url><loc>https://www.apexautocaremcr.co.uk/about</loc></url>
-  <url><loc>https://www.apexautocaremcr.co.uk/services</loc></url>
-  <url><loc>https://www.apexautocaremcr.co.uk/gallery</loc></url>
-  <url><loc>https://www.apexautocaremcr.co.uk/contact</loc></url>
-  <url><loc>https://www.apexautocaremcr.co.uk/privacy</loc></url>
+  <url>
+    <loc>https://www.apexautocaremcr.co.uk/</loc>
+  </url>
+  <url>
+    <loc>https://www.apexautocaremcr.co.uk/about</loc>
+  </url>
+  <url>
+    <loc>https://www.apexautocaremcr.co.uk/contact</loc>
+  </url>
+  <url>
+    <loc>https://www.apexautocaremcr.co.uk/gallery</loc>
+  </url>
+  <url>
+    <loc>https://www.apexautocaremcr.co.uk/privacy</loc>
+  </url>
+  <url>
+    <loc>https://www.apexautocaremcr.co.uk/services</loc>
+  </url>
 </urlset>

@@ -1,6 +1,6 @@
 {
   "framework": null,
-  "buildCommand": null,
+  "buildCommand": "node scripts/build-sitemap.mjs && node scripts/check-site.mjs",
   "installCommand": null,
   "outputDirectory": "site",
   "cleanUrls": true,
